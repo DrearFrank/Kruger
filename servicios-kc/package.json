@@ -1,0 +1,31 @@
+{
+  "name": "actividades",
+  "version": "1.0.0",
+  "description": "login y actividad taller de kruger",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "dev": "nodemon server.js",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "jwt",
+    "passport",
+    "express"
+  ],
+  "author": "Francisco Leon",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "jsonwebtoken": "^7.4.2",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.44.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}

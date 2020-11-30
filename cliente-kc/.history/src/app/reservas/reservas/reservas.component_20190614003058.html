@@ -1,0 +1,214 @@
+<br>
+<div class="container">
+  <div class="btn-group btn-group-toggle">
+    <!--RESERVAS DE DEFENSAS DE TESIS-->
+    <button type="button" class="btn btn-ligth   btn-outline-primary" data-toggle="modal"
+      data-target=".bd-example-modal-lg">Eventos de un dia</button>&nbsp; &nbsp;
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content container">
+
+          <form (submit)="addReserva()">
+            <br>
+            <!--apertura de radio butos-->
+            <div class="row"> &nbsp; &nbsp;
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="selectR" id="opcionradio1" value="option1" checked>
+                <label class="form-check-label" for="opcionradio1">
+                  Docente
+                </label>
+              </div>&nbsp; &nbsp;
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="selectR" id="opcionradio2" value="option2">
+                <label class="form-check-label" for="opcionradio2">
+                  Estudiante
+                </label>
+              </div>
+            </div>
+            <!--Cierre de radio butons-->
+            <div class="form-group">
+              <label for="name">Tipo de Evento</label>
+              <select class="select-menu" name="Tipo" [(ngModel)]="credenciales.nombre" font-size="5">
+                <option *ngFor="let item of lista" [value]="item">
+                  {{item}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="name">Ingrese su cedula</label>
+              <select class="select-menu" name="Tipo" placeholder="select" [(ngModel)]="credenciales.id_docente_res"
+                font-size="5">
+                <option *ngFor="let item of doceatributo" [ngValue]="item.id_docente">
+                  {{item.documento_doc}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="name">Lugar de reservacion</label>
+              <input type="text" class="form-control small " font-size="5" name="lug-res"
+                [(ngModel)]="credenciales.id_ubicacion">
+            </div>
+            <!--Ingreso de fecha-->
+            <div class="row">
+              <form class="form-inline mb-3">
+                <div class="form-group">
+                  <div class="input-group datepicker-input">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                      [(ngModel)]="credenciales.hora_inicio_hr" ngbDatepicker #d="ngbDatepicker">
+                    <button class="input-group-addon" (click)="d.toggle()" type="button">
+                      <span class="fa fa-calendar"></span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <div class="form-group">
+                <label for="name">Hora inicio</label>
+                <select class="select-menu" name="hora inicio" [(ngModel)]="credenciales.hora_inicio_hr" font-size="5">
+                  <option *ngFor="let item of horas" [value]="item">
+                    {{item}}
+                  </option>
+                </select>
+                <select class="select-menu" name="hora fin" font-size="5">
+                  <option *ngFor="let item of minutos" [value]="item">
+                    {{item}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="name">Hora fin</label>
+                <select class="select-menu" name="hora fin" [(ngModel)]="horainicio" font-size="5">
+                  <option *ngFor="let hora of horas" [value]="hora">
+                    {{hora}}
+                  </option>
+                </select>
+                <select class="select-menu" name="hora fin" [(ngModel)]="horainicio" font-size="5">
+                  <option *ngFor="let minuto of minutos" [value]="minuto">
+                    {{minuto}}
+                  </option>
+                </select>
+              </div>
+              </div>
+            <!--Ciere de fecha de inicio-->
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Register!</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--------------------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------->
+    <button type="button" class="btn btn-light btn-outline-primary" data-toggle="modal"
+      data-target=".busqueda">buscar</button>
+
+    <div class="modal fade busqueda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  ------------------------------------------------------------------------------------------------------------------>
+    <button type="button" class="btn btn-light btn-outline-primary" data-toggle="modal"
+      data-target=".capacitaciones">Evento de varios dias</button>
+
+    <div class="modal fade capacitaciones" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="form-group">
+            <label for="name">nombre</label>
+            <input type="text" class="form-control small " font-size="5" name="nombre"
+              [(ngModel)]="credenciales.nombre">
+          </div>
+          <div class="form-group">
+            <label for="name">Persona</label>
+            <input type="text" class="form-control small " font-size="5" name="nombre"
+              [(ngModel)]="credenciales.id_persona">
+          </div>
+          <div class="form-group">
+            <label for="name">Lugar de reservacion</label>
+            <input type="text" class="form-control small " font-size="5" name="nombre"
+              [(ngModel)]="credenciales.id_ubicacion">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!----------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------------------------------->
+<div class="container">
+
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+          (viewDateChange)="loadAllEventForMonth(viewDate.getFullYear(),viewDate.getMonth())">
+          Anterior
+        </div>
+        <div class="btn btn-outline-secondary" mwlCalendarToday
+          (click)="loadAllEventForMonth(viewDate.getFullYear(),viewDate.getMonth())" [(viewDate)]="viewDate">
+          Ahora
+        </div>
+        <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+          (viewDateChange)="loadAllEventForMonth(viewDate.getFullYear(),viewDate.getMonth())">
+          Siguiente
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    </div>
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div class="btn btn-primary" (click)="view = CalendarView.Month" [class.active]="view === CalendarView.Month">
+          Mes
+        </div>
+        <div class="btn btn-primary" (click)="view = CalendarView.Week" [class.active]="view === CalendarView.Week">
+          Semana
+        </div>
+        <div class="btn btn-primary" (click)="view = CalendarView.Day" [class.active]="view === CalendarView.Day">
+          Dia
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div [ngSwitch]="view">
+    <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="eventsForCurrentMonth"
+      [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="eventsForCurrentMonth"
+      [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="eventsForCurrentMonth"
+      [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-day-view>
+  </div>
+
+</div>
+
+
+
+<div style="width: 100%;height: 100px;">
+
+</div>
