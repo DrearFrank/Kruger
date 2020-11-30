@@ -20,4 +20,4 @@
 
     1 abrir en el terminal  la carpeta  servicios-kc y ejeturtar "npm install"
     3 ejecutar usando  "npm start" 
-    "Se ejecuta en el puerto 4231"
+    "Se ejecuta en el puerto 4321"

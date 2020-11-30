@@ -9,13 +9,12 @@ users.use(cors())
 process.env.SECRET_KEY = 'secret'
 
 users.post('/register', (req, res) => {
-  const today = new Date()
+
   const userData = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
+
     email: req.body.email,
     password: req.body.password,
-    created: today
+
   }
 
   User.findOne({
@@ -58,8 +57,9 @@ users.post('/login', (req, res) => {
           expiresIn: 1440
         })
         res.json({ token: token })
+
       } else {
-        res.send('User does not exist')
+        res.send('el Usuario no existe')
       }
     })
     .catch(err => {
@@ -67,24 +67,5 @@ users.post('/login', (req, res) => {
     })
 })
 
-users.get('/profile', (req, res) => {
-  var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
-
-  User.findOne({
-    where: {
-      id: decoded.id
-    }
-  })
-    .then(user => {
-      if (user) {
-        res.json(user)
-      } else {
-        res.send('User does not exist')
-      }
-    })
-    .catch(err => {
-      res.send('error: ' + err)
-    })
-})
 
 module.exports = users
